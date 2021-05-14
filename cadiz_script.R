@@ -27,7 +27,7 @@ buildings <- mutate(buildings,
 
 
 #limitamos al periodo posterior a 1900
-buildings_1950 <- filter(buildings_val, beginning >= "1950-01-01")  
+buildings_1950 <- filter(buildings, beginning >= "1950-01-01")  
 
 
 #buffer de 4km de Cádiz
@@ -54,15 +54,21 @@ tm <-tm_shape(buildings_4km) +
               textNA = "Sin dato",
               title = "") +
   tm_layout(bg.color = "black",
-            outer.bg.color = "black",
+            main.title = 'Cádiz',
+            main.title.color = 'white',
+            main.title.position = c('center', 'top'),
+            main.title.size = 3,
+            main.title.fontfamily = 'Roboto',
+            outer.bg.color = 'black',
             legend.outside = TRUE,
-            legend.text.color = "white",
-            legend.text.fontfamily = "Roboto", 
-            panel.label.fontfamily = "Roboto",
-            panel.label.color = "white",
-            panel.label.bg.color = "black",
+            legend.text.color = 'white',
+            legend.text.fontfamily = 'Roboto', 
+            panel.label.fontfamily = 'Roboto',
+            panel.label.color = 'white',
+            panel.label.bg.color = 'black',
             panel.label.size = 5,
-            panel.label.fontface = "bold")
+            panel.label.fontface = 'bold')
+
 
 tmap_save(tm, filename = "images/cadiz_buildings_map.png")
 
